@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "lib": ["es5", "es6", "dom"],
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        // "useUnknownInCatchVariables": true,               /* Type catch clause variables as 'unknown' instead of 'any'. */
+    }
+}

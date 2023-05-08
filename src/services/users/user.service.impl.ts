@@ -4,7 +4,7 @@ import { DTS } from "../../config/data-source";
 
 
 export class UserServiceImpl {
-    async getAllUserList(callback: Function) {
+    async getAllUserList(reqData: any, callback: Function) {
         console.log('Is here 12')
        const users = await DTS.getRepository(User).find()
        console.log(users)
@@ -21,6 +21,7 @@ export class UserServiceImpl {
 
 
     async createUser(reqData: Partial<User>, callBack: Function) {
+        console.log(reqData)
         const user = await DTS.getRepository(User).create(reqData)
         const results = await DTS.getRepository(User).save(user)
         callBack(results)

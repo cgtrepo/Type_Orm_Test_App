@@ -20,7 +20,7 @@ export class UserServiceImpl {
 
 
 
-    async createUser(reqData: Partial<User>, callBack: Function) {
+    async createUser(reqData: User, callBack: Function) {
         console.log(reqData)
         const user = await DTS.getRepository(User).create(reqData)
         const results = await DTS.getRepository(User).save(user)

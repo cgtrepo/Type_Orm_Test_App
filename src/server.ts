@@ -58,14 +58,14 @@ server.listen(port, async () => {
 });
 
 
-// type A = <T, U>(x: T, y: U) => [T, U];
+type A = <T, U>(x: T, y: U) => [T, U];
 
-// type B = <S>(x: S, y: S) => [S, S];
+type B = <S>(x: S, y: S) => [S, S];
 
-// function f(a: A, b: B) {
-//     b = a; // Ok
-//     a = b; // Error
-// }
+function f(a: A, b: B) {
+    b = a; // Ok
+    // a = b; // Error
+}
 
 
 

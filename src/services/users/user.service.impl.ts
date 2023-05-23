@@ -22,8 +22,17 @@ export class UserServiceImpl {
 
     async createUser(reqData: User, callBack: Function) {
         console.log(reqData)
-        const user = await DTS.getRepository(User).create(reqData)
+        const user = this.identity(await DTS.getRepository(User).create(reqData))
         const results = await DTS.getRepository(User).save(user)
+
         callBack(results)
+    }
+
+    identity<Type>(arg: Type): Type {
+    return arg;
+    }
+
+    funWithGeneric(reqData: string) {
+        let output = this.identity(reqData)
     }
 }

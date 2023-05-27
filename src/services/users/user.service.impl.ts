@@ -1,9 +1,15 @@
 import { User } from "../../base-entities/user.model";
 import { DTS } from "../../config/data-source";
 
-
-
 export class UserServiceImpl {
+
+    identity<Type>(arg: Type): Type {
+        console.log('Is here 123')
+        console.log(arg)
+        return arg;
+    }
+
+
     async getAllUserList(reqData: any, callback: Function) {
         console.log('Is here 12')
        const users = await DTS.getRepository(User).find()
@@ -12,27 +18,20 @@ export class UserServiceImpl {
     }
 
 
-    // async createUser(reqData: Partial<User>, callback: Function) {
-    // const user = await DTS.getRepository(User).create(reqData)
-    // const results = await DTS.getRepository(User).save(user)
-    // callback(results)
-    // }
-
-
-
     async createUser(reqData: User, callBack: Function) {
         console.log(reqData)
         const user = this.identity(await DTS.getRepository(User).create(reqData))
         const results = await DTS.getRepository(User).save(user)
-
+        console.log(results)
         callBack(results)
     }
 
-    identity<Type>(arg: Type): Type {
-    return arg;
-    }
 
-    funWithGeneric(reqData: string) {
+
+    async funWithGeneric(reqData: string, callBack: Function) {
+        console.log(reqData)
         let output = this.identity(reqData)
+        console.log(output)
+        callBack(output)
     }
 }

@@ -28,9 +28,9 @@ export class UserServiceImpl {
 
 
 
-    async funWithGeneric(reqData: string, callBack: Function) {
-        console.log(reqData)
-        let output = this.identity(reqData)
+    async funWithGeneric(onGet: string, callBack: Function) {
+        console.log(onGet)
+        let output = this.identity(onGet)
         console.log(output)
         callBack(output)
     }

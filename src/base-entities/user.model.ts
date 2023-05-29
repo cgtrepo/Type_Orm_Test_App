@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm"
+import { Profil } from "./profil.model";
 
 @Entity()
 export class User {
@@ -20,4 +21,6 @@ export class User {
     @Column()
     password: string;
 
+    @OneToOne(() => Profil, profil => profil.user, { onDelete: 'CASCADE' })
+    profile: Profil
 }

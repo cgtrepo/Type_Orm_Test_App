@@ -1,7 +1,6 @@
-import { MediaType } from "express";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { DestinationType } from "./enum/DestinationType";
-import { MediaType,  } from "./enum/MediaType";
+import { MediaType } from "./enum/mediaType";
 
 
 

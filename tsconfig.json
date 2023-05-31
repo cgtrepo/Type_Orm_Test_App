@@ -6,6 +6,7 @@
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        // "useUnknownInCatchVariables": true,               /* Type catch clause variables as 'unknown' instead of 'any'. */
+        "useUnknownInCatchVariables": true,  
+        "esModuleInterop": true,        /* Type catch clause variables as 'unknown' instead of 'any'. */
     }
 }

@@ -25,6 +25,8 @@ export class UserController extends ConfigRoute {
 
         this.ROUTER_POST(this.Routes.FOR_TEST, new SERVICE(this.USER_SERVICE, (func) => func.funWithGeneric));
 
+        this.ROUTER_POST(this.Routes.FOR_TEST, new SERVICE(this.USER_SERVICE, (func) => func.funWithGeneric));
+
         return this.route
     }
 
@@ -36,7 +38,8 @@ export namespace UsersController {
         GET_ALL_USERS = "/get-all-users",
         ID = "/:id",
         CREATE_USER = "/create-user",
-        FOR_TEST = "/for-test"
+        FOR_TEST = "/for-test",
+        POST_FILES = "post-files"
     }
 }
 

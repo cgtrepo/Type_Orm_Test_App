@@ -4,6 +4,7 @@ import bodyParser = require("body-parser");
 import { UserController } from "./controllers/user.controller";
 import testController from "./controllers/test.controller";
 import cors from 'cors'
+import { FileStorageController } from "./controllers/file.storage.controller";
 
 const app = express();
 
@@ -21,14 +22,15 @@ DTS.initialize().then(() => {
         console.error("Error during Data Source initialization:", err)
 })
 
-app.use(bodyParser.json({ limit: '500mb'}));
-app.use(bodyParser.urlencoded({ extended: true, limit: '500mb' }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 
 let usersController = new UserController(app, "users routes")
-
-console.log(usersController.getCommonRoutes())
+let filesStorageControler = new FileStorageController(app, "files routes")
 
 app.use("/api/users", usersController.getCommonRoutes())
+
+app.use("/api/files", filesStorageControler.getCommonRoutes())  
 
 app.use('/api/test', testController)
 

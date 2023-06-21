@@ -3,11 +3,7 @@ import { DTS } from "../../config/data-source";
 
 export class UserServiceImpl {
 
-    identity<Type>(arg: Type): Type {
-        console.log('Is here 123')
-        console.log(arg)
-        return arg;
-    }
+    identity<Type>(arg: Type): Type {return arg;}
 
 
     async getAllUserList(reqData: any, callback: Function) {

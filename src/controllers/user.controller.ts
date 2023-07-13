@@ -22,6 +22,7 @@ export class UserController extends ConfigRoute {
 
         this.ROUTER_POST(this.Routes.CREATE_USER, new SERVICE(this.USER_SERVICE, (func) => func.createUser));
 
+        this.ROUTER_POST(this.Routes.REMOOVE_USER, new SERVICE(this.USER_SERVICE, (func) => func.deleteUser));
 
         this.ROUTER_POST(this.Routes.FOR_TEST, new SERVICE(this.USER_SERVICE, (func) => func.funWithGeneric));
 
@@ -39,7 +40,8 @@ export namespace UsersController {
         ID = "/:id",
         CREATE_USER = "/create-user",
         FOR_TEST = "/for-test",
-        POST_FILES = "post-files"
+        POST_FILES = "/post-files",
+        REMOOVE_USER = "/remoove-user"
     }
 }
 

@@ -22,7 +22,13 @@ export class UserServiceImpl {
         callBack(results)
     }
 
-
+    async deleteUser(reqData: { id: number }, callBack: Function) {
+        const findUser = await DTS.getRepository(User).findOne({where: {...reqData}})
+        console.log(reqData)
+        console.log(findUser)
+        await DTS.getRepository(User).remove(findUser)
+        callBack('Succes')
+    }
 
     async funWithGeneric(onGet: string, callBack: Function) {
         console.log(onGet)

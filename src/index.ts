@@ -16,8 +16,21 @@ app.use(cors({
         origin: 'http://localhost:7000',
 }));
 
-DTS.initialize().then(() => {
-        console.log("Data Source has been initialized!")
+DTS.initialize().then(async (base) => {
+        console.log(base)
+        if(base) {
+                const queryResult = await DTS.query(
+                        "SELECT * FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema = 'explotel_base_'"
+                );
+
+
+                let allTableName: Array<string> = [];
+
+                const tableNames = queryResult.map((row: any) => { allTableName.push(row.TABLE_NAME); row.TABLE_NAME == 'validation_request' });
+                console.log(allTableName);
+                console.log(allTableName.length);
+                console.log("Data Source has been initialized!")
+        }
 }).catch((err) => {
         console.error("Error during Data Source initialization:", err)
 })
